@@ -1,0 +1,392 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "f709a2bd-6b33-4d03-a9a7-3e55a3af9c12",
+        "name": "springboot-study"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Scenario",
+            "description": "GetController",
+            "id": "d0a24a18-fbbf-42d0-bb3d-d30d93457c07",
+            "name": "GetController"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/hello"
+                },
+                "id": "09174c0c-4815-4a6d-adc5-43cc15e01f02",
+                "name": "RequestMapping 어노테이션",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/name"
+                },
+                "id": "3d5cb7d5-6977-4077-a6f0-bfab24fcaa9c",
+                "name": "No Parameter",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/variable1/ironman"
+                },
+                "id": "cf9c6131-1938-447f-9e42-cd0c3b539b9f",
+                "name": "PathVariable - 1 - 변수명 그대로 사용",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/variable2/thor"
+                },
+                "id": "db5a0406-9b0e-41f5-a5e4-2b4242d9a33d",
+                "name": "PathVariable - 1 - 변수명 변경",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": [
+                      {
+                        "enabled": true,
+                        "name": "name",
+                        "value": "홍길동"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "email",
+                        "value": "abc@aaa.com"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "organization",
+                        "value": "FBI"
+                      }
+                    ]
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/request1"
+                },
+                "id": "8ea42708-b2d0-4432-a4fe-f89dd99bb8dd",
+                "name": "RequestParam - Query String",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": [
+                      {
+                        "enabled": true,
+                        "name": "name",
+                        "value": "홍길동"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "email",
+                        "value": "abc@aaa.com"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "organization",
+                        "value": "FBI"
+                      }
+                    ]
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/request2"
+                },
+                "id": "cd7b763b-63d4-4675-969a-7dc1dbba797f",
+                "name": "RequestParam - Query String - Map",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": [
+                      {
+                        "enabled": true,
+                        "name": "name",
+                        "value": "홍길동"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "email",
+                        "value": "abc@aaa.com"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "organization",
+                        "value": "FBI"
+                      }
+                    ]
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/request3"
+                },
+                "id": "ff1227d1-591c-4f9e-b3ec-c255e1f70cba",
+                "name": "RequestParam - Query String - Dto",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": [
+                      {
+                        "enabled": true,
+                        "name": "name",
+                        "value": "홍길동"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "email",
+                        "value": "abc@aaa.com"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "organization",
+                        "value": "FBI"
+                      }
+                    ]
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/request4"
+                },
+                "id": "ada03990-ef2a-4bb3-b6a6-4b00fd39fd30",
+                "name": "RequestParam - Query String - Dto - ResponseEntity",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": [
+                      {
+                        "enabled": true,
+                        "name": "name",
+                        "value": "홍길동"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "email",
+                        "value": "abc@aaa.com"
+                      },
+                      {
+                        "enabled": true,
+                        "name": "organization",
+                        "value": "FBI"
+                      }
+                    ]
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:8080",
+                  "path": "/api/v1/get-api/request3"
+                },
+                "id": "5de882f7-061f-45fd-971b-9e402919fd7b",
+                "name": "Copy of RequestParam - Query String - Dto - ResponseEntity",
+                "headers": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

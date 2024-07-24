@@ -19,11 +19,11 @@ public class SwaggerConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
                 .select()
-                . apis(RequestHandlerSelectors.basePackage("com.springboot.api"))
+                .apis(RequestHandlerSelectors.basePackage("com.springboot.api"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {

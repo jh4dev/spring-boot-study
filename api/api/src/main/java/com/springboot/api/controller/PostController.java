@@ -1,6 +1,8 @@
 package com.springboot.api.controller;
 
 import com.springboot.api.dto.MemberDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
@@ -39,6 +41,14 @@ public class PostController {
     @PostMapping(value = "/member2")
     public String postMemberDto(@RequestBody MemberDto member) {
         return member.toString();
+    }
+
+
+    @PostMapping(value = "/member3")
+    public ResponseEntity<MemberDto> postMemberDto2(@RequestBody MemberDto member) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(member);
     }
 
 
