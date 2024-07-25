@@ -1,15 +1,16 @@
-package com.springboot.service.impl;
+package com.springboot.jpa.service.impl;
 
 import com.springboot.jpa.data.dao.ProductDAO;
-import com.springboot.jpa.data.dao.impl.ProductDAOImpl;
 import com.springboot.jpa.data.dto.ProductDto;
 import com.springboot.jpa.data.dto.ProductResponseDto;
 import com.springboot.jpa.data.entity.Product;
-import com.springboot.service.ProductService;
+import com.springboot.jpa.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private final ProductDAO productDAO;

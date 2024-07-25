@@ -29,7 +29,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         Optional<Product> selectedProduct = productRepository.findById(number);
 
-        return selectedProduct.get();
+        return selectedProduct.orElseGet(Product::new);
     }
 
     @Override
