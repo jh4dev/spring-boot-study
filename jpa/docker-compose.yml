@@ -5,10 +5,10 @@ services:
     image: mariadb:latest
     container_name: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: as153759
       MYSQL_DATABASE: springboot
       MYSQL_USER: sb_user
-      MYSQL_PASSWORD: secret
+      MYSQL_PASSWORD: as153759
     ports:
       - "3306:3306"
     volumes:
@@ -22,7 +22,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/springboot
       SPRING_DATASOURCE_USERNAME: sb_user
-      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_DATASOURCE_PASSWORD: as153759
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: "true"
       SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MariaDBDialect
