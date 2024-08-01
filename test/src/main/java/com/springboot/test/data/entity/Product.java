@@ -5,15 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @Builder
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "number")
+@AllArgsConstructor
+@EqualsAndHashCode
 @ToString(exclude = "name")
-@Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
 
     @Id
@@ -32,4 +32,5 @@ public class Product {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
 }

@@ -4,10 +4,16 @@ import com.springboot.test.data.dto.ProductDto;
 import com.springboot.test.data.dto.ProductResponseDto;
 import com.springboot.test.data.entity.Product;
 import com.springboot.test.data.repository.ProductRepository;
+import com.springboot.test.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
@@ -15,10 +21,15 @@ import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
-public class ProductServiceTest {
+@ExtendWith(SpringExtension.class) //스프링 컨텍슽으를 사용하도록 설정
+@Import({ProductServiceImpl.class})
+public class ProductServiceTest2 {
 
-    private ProductRepository productRepository = Mockito.mock(ProductRepository.class);
-    private ProductServiceImpl productService;
+    @MockBean
+    ProductRepository productRepository;
+
+    @Autowired
+    ProductService productService;
 
     @BeforeEach
     public void setUpTest() {
