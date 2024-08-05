@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @DataJpaTest
-@ActiveProfiles("test")
 public class ProductRepositoryTestByH2 {
 
     @Autowired
@@ -20,14 +21,34 @@ public class ProductRepositoryTestByH2 {
     @Test
     public void saveTest() {
         Product product = new Product();
-        product.setName("이름이야");
+        product.setName("연필");
         product.setPrice(500000);
         product.setStock(2020);
 
         Product savedProduct = productRepository.save(product);
 
-        Assertions.assertEquals(product.getName(), savedProduct.getName());
-        Assertions.assertEquals(product.getPrice(), savedProduct.getPrice());
-        Assertions.assertEquals(product.getStock(), savedProduct.getStock());
+        assertEquals(product.getName(), savedProduct.getName());
+        assertEquals(product.getPrice(), savedProduct.getPrice());
+        assertEquals(product.getStock(), savedProduct.getStock());
+    }
+
+    @Test
+    void selectTest() {
+
+        //Given
+        Product product = new Product();
+        product.setName("연필");
+        product.setPrice(500000);
+        product.setStock(2020);
+
+        Product savedProduct = productRepository.saveAndFlush(product);
+
+        //When
+        Product foundProduct = productRepository.findById(savedProduct.getNumber()).get();
+
+        //Then
+        assertEquals(product.getName(), foundProduct.getName());
+        assertEquals(product.getPrice(), foundProduct.getPrice());
+        assertEquals(product.getStock(), foundProduct.getStock());
     }
 }
