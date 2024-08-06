@@ -24,14 +24,14 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<ProductResponseDto> getProduct(Long number) {
-        log.info("ProductController.getProduct() 호출!");
+        log.info("ProductController.getProduct() 호출!!");
         ProductResponseDto productResponseDto = productService.getProduct(number);
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDto);
     }
 
     @PostMapping
     public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductDto productDto) {
-
+        log.info("ProductController.createProduct() 호출!!");
         ProductResponseDto productResponseDto = productService.saveProduct(productDto);
 
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDto);
