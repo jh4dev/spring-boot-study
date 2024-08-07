@@ -3,6 +3,7 @@ package com.springboot.test.controller;
 import com.google.gson.Gson;
 import com.springboot.test.data.dto.ProductDto;
 import com.springboot.test.data.dto.ProductResponseDto;
+import com.springboot.test.service.ProductService;
 import com.springboot.test.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,9 +29,8 @@ public class ProductControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    //인터페이스로는 안되는지 확인 해보자.
     @MockBean
-    ProductServiceImpl productService;
+    ProductService productService;
 
     @Test
     @DisplayName("MockMvc 를 통한 Product 데이터 조회 테스트")

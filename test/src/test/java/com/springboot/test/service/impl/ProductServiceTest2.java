@@ -21,7 +21,7 @@ import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(SpringExtension.class) //스프링 컨텍슽으를 사용하도록 설정
+@ExtendWith(SpringExtension.class) //스프링 컨텍스트를 사용하도록 설정
 @Import({ProductServiceImpl.class})
 public class ProductServiceTest2 {
 
@@ -30,11 +30,6 @@ public class ProductServiceTest2 {
 
     @Autowired
     ProductService productService;
-
-    @BeforeEach
-    public void setUpTest() {
-        productService = new ProductServiceImpl(productRepository);
-    }
 
     @Test
     void getProductTest() {
