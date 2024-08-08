@@ -7,19 +7,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class ProductRepositoryTestByProjectConfig {
+public class ProductRepositoryTestWithProjectConfig {
 
     @Autowired
     private ProductRepository productRepository;
 
     //저장 테스트
-    //테스트에 h2 를 사용한다면, dialect 설정 유의
     @Test
     public void saveTest() {
         Product product = new Product();

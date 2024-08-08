@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import javax.persistence.EntityManager;
 
 @DataJpaTest
-public class ProductRepositoryTestByH2 {
+@ActiveProfiles("test")
+public class ProductRepositoryTestWithH2 {
 
     @Autowired
     private ProductRepository productRepository;
@@ -20,17 +21,24 @@ public class ProductRepositoryTestByH2 {
     //테스트에 h2 를 사용한다면, dialect 설정 유의
     @Test
     public void saveTest() {
+
+        //Given
         Product product = new Product();
         product.setName("연필");
         product.setPrice(500000);
         product.setStock(2020);
 
+        //When
         Product savedProduct = productRepository.save(product);
 
-        assertEquals(product.getName(), savedProduct.getName());
-        assertEquals(product.getPrice(), savedProduct.getPrice());
-        assertEquals(product.getStock(), savedProduct.getStock());
+        //Then
+        Assertions.assertEquals(product.getName(), savedProduct.getName());
+        Assertions.assertEquals(product.getPrice(), savedProduct.getPrice());
+        Assertions.assertEquals(product.getStock(), savedProduct.getStock());
     }
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Test
     void selectTest() {
@@ -44,11 +52,13 @@ public class ProductRepositoryTestByH2 {
         Product savedProduct = productRepository.saveAndFlush(product);
 
         //When
+        entityManager.clear();
         Product foundProduct = productRepository.findById(savedProduct.getNumber()).get();
 
         //Then
-        assertEquals(product.getName(), foundProduct.getName());
-        assertEquals(product.getPrice(), foundProduct.getPrice());
-        assertEquals(product.getStock(), foundProduct.getStock());
+        Assertions.assertFalse(entityManager.contains(savedProduct), "Saved Product is in the Persistence Context");
+        Assertions.assertEquals(product.getName(), foundProduct.getName());
+        Assertions.assertEquals(product.getPrice(), foundProduct.getPrice());
+        Assertions.assertEquals(product.getStock(), foundProduct.getStock());
     }
 }

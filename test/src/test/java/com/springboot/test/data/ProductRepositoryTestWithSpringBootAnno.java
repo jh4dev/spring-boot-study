@@ -2,24 +2,20 @@ package com.springboot.test.data;
 
 import com.springboot.test.data.entity.Product;
 import com.springboot.test.data.repository.ProductRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
-public class ProductRepositoryTestBySpringBootAt {
+public class ProductRepositoryTestWithSpringBootAnno {
 
     @Autowired
     private ProductRepository productRepository;
 
     //저장 테스트
-    //테스트에 h2 를 사용한다면, dialect 설정 유의
     @Test
     public void crudTest() {
 
