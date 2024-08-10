@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @ToString(exclude = "name")
 @Table(name = "product")
-public class Product {
+public class Product extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,9 +39,4 @@ public class Product {
             isActive = true;
         }
     }
-
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
-
 }
