@@ -21,8 +21,7 @@ public class QueryDslTest extends RepositoryTestBase{
 
     @Autowired
     ProductRepository productRepository;
-    @Autowired
-    EntityManager entityManager;
+
 
     @Autowired
     JPAQueryFactory jpaQueryFactory;
@@ -70,7 +69,8 @@ public class QueryDslTest extends RepositoryTestBase{
         }
         log.info(stringBuilder.toString());
     }
-
+    @Autowired
+    EntityManager entityManager;
     @Test
     void queryDslTest03() {
         JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(entityManager);
@@ -94,7 +94,8 @@ public class QueryDslTest extends RepositoryTestBase{
         log.info(stringBuilder.toString());
 
         // List Select
-        List<Tuple> tupleList = jpaQueryFactory.select(qProduct.name, qProduct.price)
+        List<Tuple> tupleList = jpaQueryFactory
+                .select(qProduct.name, qProduct.price)
                 .from(qProduct)
                 .where(qProduct.name.eq("펜"))
                 .orderBy(qProduct.price.asc())
@@ -112,6 +113,7 @@ public class QueryDslTest extends RepositoryTestBase{
 
     }
 
+    @Test
     void queryDslTest04() {
         QProduct qProduct = QProduct.product;
 
