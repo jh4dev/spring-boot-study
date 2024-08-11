@@ -14,11 +14,14 @@
     * mariadb-java-client
     * lombok
     * springdoc-openapi-ui
-    * ...
+    * querydsl-jpa
+    * querydsl-apt
 
 
 ## History
 1. RestController
 2. JPA > Spring Data JPA Basic
 3. Test > Spring Test Basic / Jacoco
-4. ...
+4. JPQL > Query Methods, @Query Anno
+5. QueryDSL
+6. ...
