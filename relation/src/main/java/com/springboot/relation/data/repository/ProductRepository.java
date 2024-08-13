@@ -116,4 +116,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("select p.name, p.price, p.stock from Product p where p.name = :name")
     List<Object[]> findByNameParam2(@Param("name") String name);
+
+    List<Product> findByProviderId(Long id);
 }
